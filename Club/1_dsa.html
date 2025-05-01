@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DSA Club Participation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      color: #333;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-yes {
+      background-color: #27ae60;
+      color: white;
+    }
+    .btn-no {
+      background-color: #c0392b;
+      color: white;
+    }
+    #question-section, #thankyou-section {
+      display: none;
+    }
+    ol {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .reward {
+      background: #e8f5e9;
+      padding: 15px;
+      border: 1px solid #2ecc71;
+      border-radius: 6px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="intro-section">
+    <h1>Welcome to the DSA Club!</h1>
+    <p>
+      The DSA Club is a student-led community dedicated to helping you master Data Structures and Algorithms through challenges, collaboration, and learning.
+      Participating members get a chance to improve their problem-solving skills and win exciting rewards!
+    </p>
+    <h2>Would you like to participate in today's DSA challenge?</h2>
+    <div style="text-align:center;">
+      <button class="btn btn-yes" onclick="showQuestions()">Yes, I'm interested</button>
+      <button class="btn btn-no" onclick="showThankYou()">No, maybe next time</button>
+    </div>
+  </div>
+
+  <div class="container" id="question-section">
+    <h2>Top 10 DSA Questions</h2>
+
+      <ol>
+        <li>
+          <a href="https://leetcode.com/problems/reverse-linked-list/description/">Reverse a linked list iteratively and recursively.</a>
+          <br><textarea rows="5" cols="80" placeholder="Write your code here..."></textarea>
+          <br><input type="file" accept=".py,.cpp,.java,.txt" />
+        </li>
+        <br>
+        <br>
+        <li>
+          <a href="https://leetcode.com/problems/linked-list-cycle-ii/description/">Linked list cycle</a>
+          <br><textarea rows="5" cols="80" placeholder="Write your code here..."></textarea>
+          <br><input type="file" accept=".py,.cpp,.java,.txt" />
+        </li>
+        <br>
+        <br>
+        <li>
+          <a href="https://leetcode.com/problems/string-to-integer-atoi/description/">String to Integer</a>
+          <br><textarea rows="5" cols="80" placeholder="Write your code here..."></textarea>
+          <br><input type="file" accept=".py,.cpp,.java,.txt" />
+        </li>
+        <br>
+        <br>
+        <li>
+          <a href="https://leetcode.com/problems/integer-to-roman/description/">Integer to Roman</a>
+          <br><textarea rows="5" cols="80" placeholder="Write your code here..."></textarea>
+          <br><input type="file" accept=".py,.cpp,.java,.txt" />
+        </li>
+        <br>
+        <br>
+        <li>
+          <a href="https://leetcode.com/problems/remove-element/description/">Remove Element</a>
+          <br><textarea rows="5" cols="80" placeholder="Write your code here..."></textarea>
+          <br><input type="file" accept=".py,.cpp,.java,.txt" />
+        </li>
+        <br>
+        <br>
+        <li>
+          <a href="https://leetcode.com/problems/spiral-matrix/description/">Spiral Matrix</a>
+          <br><textarea rows="5" cols="80" placeholder="Write your code here..."></textarea>
+          <br><input type="file" accept=".py,.cpp,.java,.txt" />
+        </li>
+        <br>
+        <br>
+        <li>
+          <a href="https://leetcode.com/problems/set-matrix-zeroes/description/">Set Matrix Zeroes</a>
+          <br><textarea rows="5" cols="80" placeholder="Write your code here..."></textarea>
+          <br><input type="file" accept=".py,.cpp,.java,.txt" />
+        </li>
+        <br>
+        <br>
+        <li>
+          <a href="https://leetcode.com/problems/gas-station/description/">Gas Station</a>
+          <br><textarea rows="5" cols="80" placeholder="Write your code here..."></textarea>
+          <br><input type="file" accept=".py,.cpp,.java,.txt" />
+        </li>
+        <br>
+        <br>
+        <li>
+          <a href="https://leetcode.com/problems/reverse-vowels-of-a-string/description/">Reverse Vowels Of a String</a>
+          <br><textarea rows="5" cols="80" placeholder="Write your code here..."></textarea>
+          <br><input type="file" accept=".py,.cpp,.java,.txt" />
+        </li>
+        <br>
+        <br>
+        <li>
+          <a href="https://leetcode.com/problems/powx-n/description/">Pow x-n</a>
+          <br><textarea rows="5" cols="80" placeholder="Write your code here..."></textarea>
+          <br><input type="file" accept=".py,.cpp,.java,.txt" />
+        </li>
+      </ol>
+
+    <div class="reward">
+      🎉 <strong>Participation Reward:</strong> All students who attempt these problems will receive a digital certificate and bonus club points!
+    </div>
+  </div>
+
+  <div class="container" id="thankyou-section">
+    <h2>Thank You!</h2>
+    <p>
+      Thanks for visiting the DSA Club. We hope to see you participate in our next challenge. Keep learning and growing!
+    </p>
+  </div>
+
+  <script>
+    function showQuestions() {
+      document.getElementById("intro-section").style.display = "none";
+      document.getElementById("question-section").style.display = "block";
+    }
+
+    function showThankYou() {
+      document.getElementById("intro-section").style.display = "none";
+      document.getElementById("thankyou-section").style.display = "block";
+    }
+  </script>
+</body>
+</html>

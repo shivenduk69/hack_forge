@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geeta University Music Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0077cc;
+      --accent: #ff4d6d;
+      --bg: #f0f4f8;
+      --text: #222;
+      --card-bg: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary);
+      padding: 1rem 2rem;
+      color: white;
+    }
+
+    nav h1 {
+      font-weight: 800;
+      font-size: 1.8rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    nav ul li:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1580894894513-b8aeb4f1648b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      color: white;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero button {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .hero button:hover {
+      background-color: #e63956;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+
+    .section p {
+      max-width: 800px;
+      margin: 1rem auto 3rem;
+      font-size: 1.1rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1rem;
+    }
+
+    .card h3 {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .footer {
+      background-color: var(--primary);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .modal-content {
+      background-color: white;
+      color: #333;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .modal-content input,
+    .modal-content select,
+    .modal-content textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.5rem 0 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .modal-content button {
+      background: var(--accent);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    .modal-content button:hover {
+      background-color: #d93654;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Geeta University Music Club</h1>
+    <ul>
+
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Where Music Lives</h2>
+      <p>Join the rhythm revolution at Geeta University Music Club – jam, learn, and perform with a community of passionate musicians.</p>
+      <button onclick="document.getElementById('joinModal').style.display='flex'">Join the Club</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Explore Genres</h2>
+    <p>From EDM to classical, we embrace every melody. Discover the sound that moves you and connect with fellow music lovers.</p>
+
+    <div class="gallery">
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqiF8hfyNgGibrmrxNbgfkPJoJ2ji0tPDRKg&s" alt="">
+        <div class="card-content">
+          <h3>EDM</h3>
+          <p>Drop the beat and feel the pulse of electronic dance music.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmdqgrfkq1tu_Aq5SXWd9pCtv1QEfINgwzIQ&s" alt="Rock">
+        <div class="card-content">
+          <h3>Rock</h3>
+          <p>Unleash power chords and energy through raw rock performances.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhn_sRlR7Qr9titnx70ccDuuwHNxyC9M18bg&s" alt="Classical">
+        <div class="card-content">
+          <h3>Classical</h3>
+          <p>Experience the harmony of strings, keys, and timeless rhythm.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL3wcrOa3nnCurtEu-4r12Lqp6sqwK5erSvg&s" alt="Hip-Hop">
+        <div class="card-content">
+          <h3>Patriotic Song</h3>
+          <p>Rap, beatbox, and vibe with urban beats and expressive lyrics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 Geeta University Music Club. All rights reserved.
+  </footer>
+
+  <!-- Modal Form -->
+  <div class="modal" id="joinModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="document.getElementById('joinModal').style.display='none'">&times;</span>
+      <h2>Membership Form</h2>
+      <form>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Your name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com" required>
+
+        <label for="genre">Favorite Genre</label>
+        <select id="genre">
+          <option>EDM</option>
+          <option>Rock</option>
+          <option>Classical</option>
+          <option>Hip-Hop</option>
+          <option>Other</option>
+        </select>
+
+        <label for="message">Tell us about your music journey</label>
+        <textarea id="message" rows="4" placeholder="Write here..."></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
+

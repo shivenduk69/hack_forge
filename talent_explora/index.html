@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Achievers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      background: url('https://thumbs.dreamstime.com/b/sports-fan-raises-his-arms-victory-stadium-sunset-celebrating-winning-moment-sky-painted-ai-339287076.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      color: #ffffff;
+      overflow: hidden;
+    }
+  
+    /* Darker overlays for better contrast */
+    body::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6); /* increased from 0.5 */
+      z-index: 0;
+    }
+  
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05); /* slightly reduced */
+      backdrop-filter: blur(4px);
+      z-index: 0;
+    }
+  
+    .header, .card-container {
+      position: relative;
+      z-index: 1;
+    }
+  
+    .header {
+      margin-top: 40px;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      color: #ffffff;
+      position: relative;
+      padding-bottom: 10px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5); /* stronger shadow */
+    }
+  
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #ffd700;
+      border-radius: 2px;
+    }
+  
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 40px 0;
+      width: 100%;
+      max-width: 500px;
+    }
+  
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      padding: 18px 25px;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border-left: 4px solid #ffd700;
+      color: #2c3e50; /* Text color inside cards */
+    }
+  
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      background: #ffffff;
+    }
+  
+    .card a {
+      color: #2c3e50;
+      text-decoration: none;
+      font-weight: 600;
+      display: block;
+    }
+  
+    .card a:hover {
+      text-decoration: underline;
+    }
+  
+    @media (max-width: 600px) {
+      .header {
+        font-size: 2rem;
+      }
+  
+      .card {
+        font-size: 1rem;
+        padding: 15px 20px;
+      }
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="header">Achievers</div>
+
+  <div class="card-container">
+    <div class="card">Entrepreneurship</div>
+    <div class="card"><a href="hack.html">Hackathon</a></div>
+    <div class="card"><a href="Literature.html">Literature</a></div>
+    <div class="card">Fashion Show</div>
+    <div class="card">Dancing</div>
+    <div class="card">Singing</div>
+    <div class="card">Drama</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geeta University</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://blog.geetauniversity.edu.in/wp-content/uploads/2022/11/353-1-1.png') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            color: white;
+        }
+
+        .login-btn {
+            position: absolute;
+            top: 20px;
+            right: 50px;
+            padding: 12px 30px;
+            background-color: #15e98a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .overlay {
+            
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 100px auto 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <button class="login-btn"><a href="../Login/index.html">Login</a></button>
+    
+    <div class="overlay">
+        <h1>Welcome to Geeta University</h1>
+        <p>
+            Geeta University is a premier educational institution committed to academic excellence and holistic development. 
+            Established with a vision to nurture future leaders, we offer world-class education across diverse disciplines 
+            including Engineering, Management, Law, and Humanities. Our 100-acre lush green campus provides the perfect 
+            environment for learning and growth, equipped with state-of-the-art facilities, modern laboratories, and a 
+            well-stocked library. With highly qualified faculty and industry-aligned curriculum, we prepare students to 
+            excel in their chosen fields. Geeta University takes pride in its outstanding placement records, research 
+            contributions, and vibrant campus life that fosters innovation, creativity, and social responsibility.
+        </p>
+    </div>
+
+    <script>
+        document.querySelector('.login-btn').addEventListener('click', function() {
+            alert('Login functionality will be implemented here');
+            // You can replace this with actual login functionality
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Feedback Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Side: Static content -->
+        <div class="left-section">
+            <h1>Session- <br> Feedback </h1>
+            <span class="tag">Autolayout</span>
+            <span class="tag">Copied design</span>
+        </div>
+
+        <!-- Right Side: Feedback Form -->
+        <div class="right-section">
+            <h2>Session Feedback</h2>
+            <p>Write an overview of your experience.</p>
+
+            <div class="stars">
+                <span>⭐</span>
+                <span>⭐</span>
+                <span>⭐</span>
+                <span>⭐</span>
+                <span>⭐</span>
+            </div>
+
+            <!-- Feedback Textarea -->
+            <textarea id="feedbackInput" name="text" placeholder="Write your feedback here..."></textarea>
+
+            <!-- Submit Button -->
+            <div>
+                <button id="submitBtn" class="btn">Submit Feedback</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback List Section -->
+    <div id="feedbackSection" class="feedback-section">
+        <h3>Feedback List:</h3>
+        <div id="feedbackList" class="feedback-list"></div>
+    </div>
+
+    <!-- Linking the script -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mentors</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f8;
+      color: #333;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 2.5em;
+      color: #2c3e50;
+    }
+
+    .teacher-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .teacher {
+      background: #fff;
+      width: 400px;
+      margin: 15px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .teacher:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .teacher img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .teacher p {
+      margin: 0;
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #34495e;
+    }
+
+    @media (max-width: 1000px) {
+      .teacher {
+        width: 45%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .teacher {
+        width: 90%;
+      }
+    }
+
+    header {
+      background-color: #f5f7fa;
+      padding: 40px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      border-bottom: 3px solid #d0d7de;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1em;
+      color: #34495e;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    footer {
+  background-color: #e8f0fe;
+  padding: 40px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  border-top: 3px solid #d0d7de;
+}
+
+.footer-content h2 {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.footer-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto 20px auto;
+  color: #34495e;
+  line-height: 1.6;
+}
+
+.footer-content .suggestion {
+  font-size: 1em;
+  color: #2d3436;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <h1>Interact with Teachers</h1>
+
+  <header>
+    <h1>Connecting with Teachers</h1>
+    <p>
+      Teachers play a vital role in guiding students through both academic and personal challenges.
+      Whether it's understanding a tough concept or dealing with school-related stress, students are
+      encouraged to reach out and communicate with their teachers. This interaction not only helps
+      clarify doubts but also builds a supportive learning environment where students feel heard,
+      valued, and motivated to grow.
+    </p>
+  </header>
+
+  <div class="teacher-list">
+    <div class="teacher" onclick="location.href='teacher1.html'">
+      <img src="https://media.licdn.com/dms/image/v2/C4D03AQGyCdWZ1U6XDQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1643811998562?e=1751500800&v=beta&t=c39zlCHftBxpyJb_v0ao6xCPxz4CMn8IgaZShRqeuIA" alt="Teacher 1">
+      <p>Dr.Rekha Narang - Discrete Structures</p>
+    </div>
+
+    <div class="teacher" onclick="location.href='teacher2.html'">
+      <img src="https://www.shutterstock.com/image-photo/beautiful-math-teacher-near-blackboard-260nw-1479941159.jpg" alt="Teacher 2">
+      <p>Rakhi Chauhan - Software engineering</p>
+    </div>
+
+    <div class="teacher" onclick="location.href='teacher3.html'">
+      <img src="1_image.jpg" alt="Teacher 3">
+      <p>Mr. Vishal Kumar - Object Oriented Programming Uisng C++ </p>
+    </div>
+
+    <div class="teacher" onclick="location.href='teacher4.html'">
+      <img src="https://media.gettyimages.com/id/695556138/photo/student-writing-on-blackboard.jpg?s=612x612&w=gi&k=20&c=wc-uonhmGoGNRXDRsxgp1Vic0KKjNVxrKqXJ6RtZLB8=" alt="Teacher 4">
+      <p>Mr. Rounak Duggar - FrontEnd Development</p>
+    </div>
+
+    <div class="teacher" onclick="location.href='teacher5.html'">
+      <img src="https://media.licdn.com/dms/image/v2/D5603AQGGiwBo_YpliQ/profile-displayphoto-shrink_800_800/B56ZXsfLhRHQAc-/0/1743429375870?e=1751500800&v=beta&t=Sw96JBub_5smRWflbwVn8IMCkprJr6Sg6rKJl5ciWZE" alt="Teacher 5">
+      <p>Ms. Kashish Vashist - Soft Skills</p>
+    </div>
+
+    <div class="teacher" onclick="location.href='teacher6.html'">
+      <img src="https://www.shutterstock.com/image-photo/man-suit-pointing-something-on-260nw-561452869.jpg" alt="Teacher 6">
+      <p>Mr. Sumit Kumar Gupta - Aptitude and Reasoning</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <h2>Student Success Tips</h2>
+      <ul>
+        <li>Don't hesitate to ask questions—curiosity leads to understanding.</li>
+        <li>Take notes during lessons to keep track of key points.</li>
+        <li>Review and revise regularly to reinforce learning.</li>
+        <li>Stay organized with a study schedule and goals.</li>
+        <li>Engage with your teachers—they're here to help you grow.</li>
+      </ul>
+      <p class="suggestion">
+        💡 <strong>Our best tip:</strong> Build a habit of open communication. Whether it's a small doubt or a big challenge, talking to your teachers early can make a huge difference in your learning journey.
+      </p>
+    </div>
+  </footer>
+  
+
+</body>
+</html>

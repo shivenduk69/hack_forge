@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Container Styling (Flexbox) */
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 50px;
+}
+
+/* Left Section Styling */
+.left-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.left-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.left-section .tag {
+    display: block;
+    font-size: 1.2rem;
+    color: #00c6ff;
+    margin: 5px 0;
+}
+
+/* Right Section (Feedback Form) Styling */
+.right-section {
+    flex: 1;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+}
+
+.right-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.right-section p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #666;
+}
+
+.right-section .stars {
+    margin-bottom: 20px;
+}
+
+.right-section .stars span {
+    font-size: 1.5rem;
+}
+
+.right-section textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    color: #333;
+    resize: none;
+    height: 120px;
+}
+
+.right-section .btn {
+    background-color: #00c6ff;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.right-section .btn:hover {
+    background-color: #0072ff;
+}
+
+/* Feedback Section */
+.feedback-section {
+    margin-top: 50px;
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.feedback-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-item .feedback-text {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.feedback-item .feedback-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.feedback-item button {
+    background-color: #00c6ff;
+    color: rgb(30, 29, 29);
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.feedback-item button:hover {
+    background-color: #0072ff;
+}
+
+.feedback-item button:focus {
+    outline: none;
+}
+
+#feedbackList{
+    color: black;
+}

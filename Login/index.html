@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Portal - Login/Signup</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .auth-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+        .form-switch {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .role-selection {
+            margin-bottom: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        .error-message {
+            color: #dc3545;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="auth-container">
+            <h2 class="form-title" id="formTitle">Login</h2>
+            
+            <div class="form-switch">
+                <button id="showLogin" class="btn btn-primary">Login</button>
+                <button id="showSignup" class="btn btn-outline-primary">Sign Up</button>
+            </div>
+            
+            <!-- Login Form -->
+            <div id="loginForm">
+                <div class="mb-3">
+                    <label for="loginEmail" class="form-label">University Email</label>
+                    <input type="email" class="form-control" id="loginEmail" required pattern=".*@geetauniversity\.edu\.in$" title="Please use your university email">
+                    <div id="loginEmailError" class="error-message"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" required>
+                    <div id="loginPasswordError" class="error-message"></div>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                    </div>
+                    <a href="#" id="forgotPassword">Forgot Password?</a>
+                </div>
+                <button type="button" id="loginSubmit" class="btn btn-primary w-100">Login</button>
+            </div>
+            
+            <!-- Signup Form -->
+            <div id="signupForm" class="hidden">
+                <div class="role-selection mb-4">
+                    <label class="form-label">I am a:</label>
+                    <div class="d-flex justify-content-center gap-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="userRole" id="studentRole" value="student" checked>
+                            <label class="form-check-label" for="studentRole">Student</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="userRole" id="teacherRole" value="teacher">
+                            <label class="form-check-label" for="teacherRole">Teacher</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Student Signup Form -->
+                <div id="studentSignupForm">
+                    <div class="mb-3">
+                        <label for="studentEmail" class="form-label">University Email</label>
+                        <input type="email" class="form-control" id="studentEmail" required pattern=".*@geetauniversity\.edu\.in$" title="Please use your university email">
+                        <div id="studentEmailError" class="error-message"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="studentPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="studentPassword" required>
+                        <div id="studentPasswordError" class="error-message"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="studentCountry" class="form-label">Country</label>
+                        <select class="form-select" id="studentCountry" required>
+                            <option value="" selected disabled>Select Country</option>
+                            <option value="India">India</option>
+                            <option value="USA">USA</option>
+                            <option value="UK">UK</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Australia">Australia</option>
+                        </select>
+                        <div id="studentCountryError" class="error-message"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="studentCourse" class="form-label">Course</label>
+                        <input type="text" class="form-control" id="studentCourse" required>
+                        <div id="studentCourseError" class="error-message"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="studentYear" class="form-label">Year</label>
+                        <select class="form-select" id="studentYear" required>
+                            <option value="" selected disabled>Select Year</option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                            <option value="3">Third Year</option>
+                            <option value="4">Fourth Year</option>
+                        </select>
+                        <div id="studentYearError" class="error-message"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="studentSchool" class="form-label">School</label>
+                        <input type="text" class="form-control" id="studentSchool" required>
+                        <div id="studentSchoolError" class="error-message"></div>
+                    </div>
+                    <button type="button" id="studentSubmit" class="btn btn-primary w-100">Register as Student</button>
+                </div>
+                
+                <!-- Teacher Signup Form -->
+                <div id="teacherSignupForm" class="hidden">
+                    <div class="mb-3">
+                        <label for="teacherEmail" class="form-label">University Email</label>
+                        <input type="email" class="form-control" id="teacherEmail" required pattern=".*@geetauniversity\.edu\.in$" title="Please use your university email">
+                        <div id="teacherEmailError" class="error-message"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="teacherSubject" class="form-label">Subject</label>
+                        <select class="form-select" id="teacherSubject" required>
+                            <option value="" selected disabled>Select Subject</option>
+                            <option value="Programming in C++">Programming in C++</option>
+                            <option value="Front End">Front End</option>
+                            <option value="Software Engineering">Software Engineering</option>
+                        </select>
+                        <div id="teacherSubjectError" class="error-message"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="teacherPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="teacherPassword" required>
+                        <div id="teacherPasswordError" class="error-message"></div>
+                    </div>
+                    <button type="button" id="teacherSubmit" class="btn btn-primary w-100">Register as Teacher</button>
+                </div>
+            </div>
+            
+            <!-- Forgot Password Modal -->
+            <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Reset Password</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="resetEmail" class="form-label">Enter your university email</label>
+                                <input type="email" class="form-control" id="resetEmail" required pattern=".*@geetauniversity\.edu\.in$">
+                                <div id="resetEmailError" class="error-message"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" id="resetPasswordBtn" class="btn btn-primary">Send Reset Link</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-success text-white">
+                <strong class="me-auto">Success</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="successToastBody"></div>
+        </div>
+    </div>
+
+    <!-- Error Toast -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="errorToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-danger text-white">
+                <strong class="me-auto">Error</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="errorToastBody"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const formTitle = document.getElementById('formTitle');
+            const showLoginBtn = document.getElementById('showLogin');
+            const showSignupBtn = document.getElementById('showSignup');
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const studentRole = document.getElementById('studentRole');
+            const teacherRole = document.getElementById('teacherRole');
+            const studentSignupForm = document.getElementById('studentSignupForm');
+            const teacherSignupForm = document.getElementById('teacherSignupForm');
+            
+            // Modal elements
+            const forgotPasswordLink = document.getElementById('forgotPassword');
+            const forgotPasswordModal = new bootstrap.Modal(document.getElementById('forgotPasswordModal'));
+            const resetPasswordBtn = document.getElementById('resetPasswordBtn');
+            
+            // Toast elements
+            const successToast = new bootstrap.Toast(document.getElementById('successToast'));
+            const errorToast = new bootstrap.Toast(document.getElementById('errorToast'));
+            
+            // Initialize localStorage if empty
+            if (!localStorage.getItem('users')) {
+                localStorage.setItem('users', JSON.stringify([]));
+            }
+            
+            // Show login form
+            showLoginBtn.addEventListener('click', function() {
+                formTitle.textContent = 'Login';
+                showLoginBtn.classList.remove('btn-outline-primary');
+                showLoginBtn.classList.add('btn-primary');
+                showSignupBtn.classList.remove('btn-primary');
+                showSignupBtn.classList.add('btn-outline-primary');
+                loginForm.classList.remove('hidden');
+                signupForm.classList.add('hidden');
+            });
+            
+            // Show signup form
+            showSignupBtn.addEventListener('click', function() {
+                formTitle.textContent = 'Sign Up';
+                showSignupBtn.classList.remove('btn-outline-primary');
+                showSignupBtn.classList.add('btn-primary');
+                showLoginBtn.classList.remove('btn-primary');
+                showLoginBtn.classList.add('btn-outline-primary');
+                signupForm.classList.remove('hidden');
+                loginForm.classList.add('hidden');
+            });
+            
+            // Toggle between student and teacher forms
+            studentRole.addEventListener('change', function() {
+                if (this.checked) {
+                    studentSignupForm.classList.remove('hidden');
+                    teacherSignupForm.classList.add('hidden');
+                }
+            });
+            
+            teacherRole.addEventListener('change', function() {
+                if (this.checked) {
+                    teacherSignupForm.classList.remove('hidden');
+                    studentSignupForm.classList.add('hidden');
+                }
+            });
+            
+            // Show forgot password modal
+            forgotPasswordLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                forgotPasswordModal.show();
+            });
+            
+            // Login function
+            document.getElementById('loginSubmit').addEventListener('click', function() {
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+                const rememberMe = document.getElementById('rememberMe').checked;
+                
+                // Validate inputs
+                if (!email || !password) {
+                    showError('Please fill in all fields');
+                    return;
+                }
+                
+                // Check email format
+                if (!validateEmail(email)) {
+                    document.getElementById('loginEmailError').textContent = 'Please use a valid university email';
+                    return;
+                } else {
+                    document.getElementById('loginEmailError').textContent = '';
+                }
+                
+                // Get users from localStorage
+                const users = JSON.parse(localStorage.getItem('users'));
+                const user = users.find(u => u.email === email);
+                
+                if (!user) {
+                    document.getElementById('loginEmailError').textContent = 'Email not registered';
+                    return;
+                }
+                
+                if (user.password !== password) { // In a real app, you would hash the password
+                    document.getElementById('loginPasswordError').textContent = 'Incorrect password';
+                    return;
+                } else {
+                    document.getElementById('loginPasswordError').textContent = '';
+                }
+                
+                // Store user session if remember me is checked
+                if (rememberMe) {
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                } else {
+                    sessionStorage.setItem('currentUser', JSON.stringify(user));
+                }
+                
+                showSuccess(`Welcome back, ${user.role === 'student' ? 'Student' : 'Teacher'}!`);
+                
+                // Redirect to dashboard or home page
+                // Redirect to front page after successful login
+                setTimeout(() => {
+                    window.location.href = '../front_page/index.html';
+                }, 1500);
+            });
+            
+            // Student registration
+            document.getElementById('studentSubmit').addEventListener('click', function() {
+                const email = document.getElementById('studentEmail').value;
+                const password = document.getElementById('studentPassword').value;
+                const country = document.getElementById('studentCountry').value;
+                const course = document.getElementById('studentCourse').value;
+                const year = document.getElementById('studentYear').value;
+                const school = document.getElementById('studentSchool').value;
+                
+                // Validate inputs
+                if (!email || !password || !country || !course || !year || !school) {
+                    showError('Please fill in all fields');
+                    return;
+                }
+                
+                if (!validateEmail(email)) {
+                    document.getElementById('studentEmailError').textContent = 'Please use a valid university email';
+                    return;
+                } else {
+                    document.getElementById('studentEmailError').textContent = '';
+                }
+                
+                // Get users from localStorage
+                const users = JSON.parse(localStorage.getItem('users'));
+                
+                // Check if email already exists
+                if (users.some(u => u.email === email)) {
+                    document.getElementById('studentEmailError').textContent = 'Email already registered';
+                    return;
+                }
+                
+                // Create new student user
+                const newStudent = {
+                    email,
+                    password, // In a real app, you would hash the password
+                    role: 'student',
+                    country,
+                    course,
+                    year,
+                    school
+                };
+                
+                // Save to localStorage
+                users.push(newStudent);
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                showSuccess('Student registration successful! You can now login.');
+                
+                // Switch to login form
+                showLoginBtn.click();
+                
+                // Clear form
+                document.getElementById('studentEmail').value = '';
+                document.getElementById('studentPassword').value = '';
+                document.getElementById('studentCountry').value = '';
+                document.getElementById('studentCourse').value = '';
+                document.getElementById('studentYear').value = '';
+                document.getElementById('studentSchool').value = '';
+            });
+            
+            // Teacher registration
+            document.getElementById('teacherSubmit').addEventListener('click', function() {
+                const email = document.getElementById('teacherEmail').value;
+                const subject = document.getElementById('teacherSubject').value;
+                const password = document.getElementById('teacherPassword').value;
+                
+                // Validate inputs
+                if (!email || !subject || !password) {
+                    showError('Please fill in all fields');
+                    return;
+                }
+                
+                if (!validateEmail(email)) {
+                    document.getElementById('teacherEmailError').textContent = 'Please use a valid university email';
+                    return;
+                } else {
+                    document.getElementById('teacherEmailError').textContent = '';
+                }
+                
+                // Get users from localStorage
+                const users = JSON.parse(localStorage.getItem('users'));
+                
+                // Check if email already exists
+                if (users.some(u => u.email === email)) {
+                    document.getElementById('teacherEmailError').textContent = 'Email already registered';
+                    return;
+                }
+                
+                // Create new teacher user
+                const newTeacher = {
+                    email,
+                    password, // In a real app, you would hash the password
+                    role: 'teacher',
+                    subject
+                };
+                
+                // Save to localStorage
+                users.push(newTeacher);
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                showSuccess('Teacher registration successful! You can now login.');
+                
+                // Switch to login form
+                showLoginBtn.click();
+                
+                // Clear form
+                document.getElementById('teacherEmail').value = '';
+                document.getElementById('teacherSubject').value = '';
+                document.getElementById('teacherPassword').value = '';
+            });
+            
+            // Reset password
+            resetPasswordBtn.addEventListener('click', function() {
+                const email = document.getElementById('resetEmail').value;
+                
+                if (!email) {
+                    document.getElementById('resetEmailError').textContent = 'Please enter your email';
+                    return;
+                }
+                
+                if (!validateEmail(email)) {
+                    document.getElementById('resetEmailError').textContent = 'Please use a valid university email';
+                    return;
+                } else {
+                    document.getElementById('resetEmailError').textContent = '';
+                }
+                
+                // Get users from localStorage
+                const users = JSON.parse(localStorage.getItem('users'));
+                const user = users.find(u => u.email === email);
+                
+                if (!user) {
+                    document.getElementById('resetEmailError').textContent = 'Email not registered';
+                    return;
+                }
+                
+                // In a real app, you would send a password reset email
+                showSuccess('Password reset link has been sent to your email');
+                forgotPasswordModal.hide();
+                document.getElementById('resetEmail').value = '';
+            });
+            
+            // Helper functions
+            function validateEmail(email) {
+                const re = /^[^\s@]+@geetauniversity\.edu\.in$/;
+                return re.test(email);
+            }
+            
+            function showSuccess(message) {
+                document.getElementById('successToastBody').textContent = message;
+                successToast.show();
+            }
+            
+            function showError(message) {
+                document.getElementById('errorToastBody').textContent = message;
+                errorToast.show();
+            }
+            
+            // Check if user is already logged in
+            const currentUser = JSON.parse(localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser') || 'null');
+            if (currentUser) {
+                window.location.href = 'dashboard.html'; // Redirect to dashboard if already logged in
+            }
+        });
+    </script>
+</body>
+</html>

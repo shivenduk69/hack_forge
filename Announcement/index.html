@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+        position: relative;
+        min-height: 100vh;
+        background-image: url('https://geetauniversity.edu.in/uploads/images/geeta_university.webp'); /* Replace with your actual image URL */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 0;
+        }
+
+        body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(123, 99, 109, 0.8); 
+        z-index: -1;
+        }
+
+            h2 {
+            font-size: 40px;
+            color: white;
+            text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-pills .nav-link {
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s ease-in-out;
+            }
+
+            .nav-pills .nav-link.active {
+            background-color: #7c3aed;
+            color: white;
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+            }
+
+            .card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: none;
+            }
+
+            .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .card-title {
+            font-size: 1.5rem;
+            color: #1e90ff;
+            font-weight: 600;
+            }
+
+            .alert {
+            font-size: 1rem;
+            padding: 10px 15px;
+            }
+
+            .tab-icon {
+            margin-right: 6px;
+            }
+  </style>
+</head>
+<body>
+  <div class="container my-4">
+    <h2 class="mb-4 text-center">University Announcements</h2>
+
+    <ul class="nav nav-pills mb-4 justify-content-center" id="tabNav">
+      <li class="nav-item">
+        <button class="nav-link active" id="eventsTab">
+          <i class="fa-solid fa-calendar-days tab-icon"></i>Upcoming Events
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" id="notificationsTab">
+          <i class="fa-solid fa-bell tab-icon"></i>Notifications
+        </button>
+      </li>
+    </ul>
+
+    <div id="tabContent"></div>
+  </div>
+
+  <script src="./script.js">
+         
+  </script>
+</body>
+</html>
